@@ -1,5 +1,12 @@
 import java.time.LocalDate
 
+/**
+ * @param Empleado clase abierte que hereda de @param Persona y tiene 4 atributos
+ */
+
+/**
+ * @constructor Constructor principal, Empleado hereda de Persona
+ */
 open class Empleado: Persona {
 
     var fecha_contrato=""
@@ -30,6 +37,11 @@ open class Empleado: Persona {
         set(value){
             field=value
         }
+
+    /**
+     *@constructor constructor secundario para cuando no se introduce @param num_horas_extra
+     */
+
     constructor(nombre:String,apellidos:String,DNI:String,fecha_contrato:String,sueldo_base:Int,base_horas_extra:Double):
             super(nombre,apellidos, DNI){
         this.fecha_contrato= fecha_contrato
@@ -41,6 +53,11 @@ open class Empleado: Persona {
         fecha_contrato= LocalDate.now().toString()
 
     }
+
+    /**
+     * @return imprimir_notas imprime la información del objeto empleado
+     * @param calcular_sueldo función interna del objeto
+     */
     open fun imprimir_nomina() {
         println(
             "----------------------\n" +
@@ -51,6 +68,10 @@ open class Empleado: Persona {
                     "Sueldo: ${calcular_sueldo()}"
         )
     }
+
+    /**
+     * @return calcular_sueldo devulve el sueldo del trabajador
+     */
     open fun calcular_sueldo():Double{
         return  sueldo_base+(base_horas_extra*num_horas_extra)
     }
